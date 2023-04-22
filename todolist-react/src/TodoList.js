@@ -44,8 +44,14 @@ function TodoList () {
             <input 
             value={todo} 
             onChange={handleTodo} 
-            placeholder='할 일을 입력하세요.'/>
-            <img class="add-img" src={plus} onClick={hadnleAdd}/>
+            placeholder='할 일을 입력하세요.'
+            onKeyUp={() => {
+                if(window.event.keyCode==13){
+                    document.getElementById('add').click()
+                }
+            }}
+            />
+            <img id="add" class="add-img" src={plus} onClick={hadnleAdd}/>
         </div>
         <div class="list-div">
             {todos.length > 0 ? (
